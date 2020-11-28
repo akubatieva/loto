@@ -22,6 +22,9 @@ class Sack:
         del self.balls[current_ball_index]
         return current_ball_number
 
+    def __len__(self):
+        return len(self.balls)
+
 
 class Card:
     def __init__(self):
@@ -57,14 +60,25 @@ class Card:
                 return True
         return False
 
+    def if_everything_crossed(self):
+        for row in self.card_rows:
+            if not all(number == '-' for number in row):
+                return False
+        return True
 
-s = Sack()
-for i in range(91):
-    print(s.get_current_number())
+
+# s = Sack()
+# for i in range(91):
+#     print(s.get_current_number())
 
 # c = Card()
 # c.print_card()
+# # for r in c.card_rows:
+# #     for n in r:
+# #         c.cross_number(n)
 # c.cross_number(c.card_rows[0][1])
+# c.print_card()
+#print(c.if_everything_crossed())
 # c.cross_number(c.card_rows[1][3])
 # c.cross_number(c.card_rows[2][2])
 # print(c.contains(123))
