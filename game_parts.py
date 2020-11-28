@@ -1,5 +1,6 @@
 import random
 
+NUMBERS_RANGE = range(1, 91)
 
 class Player:
     def __init__(self, is_human, is_robot, player_card):
@@ -14,7 +15,7 @@ class Player:
 
 class Sack:
     def __init__(self):
-        self.balls = list(range(1, 91))
+        self.balls = list(NUMBERS_RANGE)
 
     def get_current_number(self):
         current_ball_index = random.choice(range(len(self.balls)))
@@ -28,7 +29,7 @@ class Sack:
 
 class Card:
     def __init__(self):
-        card_numbers = random.sample(range(1, 91), 15)
+        card_numbers = random.sample(NUMBERS_RANGE, 15)
         self.card_rows = list(self.__chunks(card_numbers, 5))
         for row in self.card_rows:
             row.sort()
