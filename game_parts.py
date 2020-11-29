@@ -4,8 +4,9 @@ NUMBERS_RANGE = range(1, 91)
 
 
 class Player:
-    def __init__(self, player_card):
+    def __init__(self, player_card, player_id):
         self.player_card = player_card
+        self.player_id = player_id
 
     def should_cross(self, current_ball_from_sack):
         pass
@@ -13,7 +14,7 @@ class Player:
 
 class HumanPlayer(Player):
     def should_cross(self, current_ball_from_sack):
-        inp = input('Зачеркнуть цифру? (y/n)')
+        inp = input(f'Игрок {self.player_id}, зачеркнуть цифру? (y/n) ')
         if inp == 'y':
             return True
         return False
