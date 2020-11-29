@@ -2,15 +2,29 @@ import random
 
 NUMBERS_RANGE = range(1, 91)
 
+
 class Player:
-    def __init__(self, is_human, is_robot, player_card):
-        self.is_human = is_human
-        self.is_robot = is_robot
+    def __init__(self, player_card):
         self.player_card = player_card
 
-    def cross(self, current_ball_from_sack):
+    def should_cross(self, current_ball_from_sack):
         pass
-    # def pass_round(self, )
+
+
+class HumanPlayer(Player):
+    def should_cross(self, current_ball_from_sack):
+        inp = input('Зачеркнуть цифру? (y/n)')
+        if inp == 'y':
+            return True
+        return False
+
+
+
+class AIPlayer(Player):
+    def should_cross(self, current_ball_from_sack):
+        if self.player_card.contains(current_ball_from_sack):
+            return True
+        return False
 
 
 class Sack:
@@ -67,7 +81,6 @@ class Card:
                 return False
         return True
 
-
 # s = Sack()
 # for i in range(91):
 #     print(s.get_current_number())
@@ -79,7 +92,7 @@ class Card:
 # #         c.cross_number(n)
 # c.cross_number(c.card_rows[0][1])
 # c.print_card()
-#print(c.if_everything_crossed())
+# print(c.if_everything_crossed())
 # c.cross_number(c.card_rows[1][3])
 # c.cross_number(c.card_rows[2][2])
 # print(c.contains(123))
