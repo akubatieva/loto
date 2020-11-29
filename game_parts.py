@@ -20,7 +20,6 @@ class HumanPlayer(Player):
         return False
 
 
-
 class AIPlayer(Player):
     def should_cross(self, current_ball_from_sack):
         if self.player_card.contains(current_ball_from_sack):
@@ -53,15 +52,6 @@ class Card:
         for i in range(0, len(numbers), n):
             yield numbers[i:i + n]
 
-    def print_card(self):
-        _ = []
-        for row in self.card_rows:
-            row = [str(n).rjust(3) for n in row]
-            row = ' '.join(row)
-            _.append(row)
-        card_str = '\n'.join(_)
-        print(card_str)
-
     def cross_number(self, number_to_cross):
         updated_rows = []
         for row in self.card_rows:
@@ -81,6 +71,16 @@ class Card:
             if not all(number == '-' for number in row):
                 return False
         return True
+
+    def __str__(self):
+        _ = []
+        for row in self.card_rows:
+            row = [str(n).rjust(3) for n in row]
+            row = ' '.join(row)
+            _.append(row)
+        card_str = '\n'.join(_)
+        return card_str
+
 
 # s = Sack()
 # for i in range(91):
