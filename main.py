@@ -47,9 +47,9 @@ if __name__ == '__main__':
         print()
         print(f'Новый бочонок: {current_ball} (осталось: {len(sack)})')
         for i, user in enumerate(players, start=1):
-            print(f'------ Карточка игрока {i} -------')
+            print(f'------ Карточка игрока {i} ----------')
             print(user.player_card)
-            print('---------------------------------')
+            print('-----------------------------------')
 
         if play(players, current_ball):
             break

@@ -47,6 +47,9 @@ class Card:
         self.card_rows = list(self.__chunks(card_numbers, 5))
         for row in self.card_rows:
             row.sort()
+            for i in range(4):
+                row.insert(random.randint(0, len(row)), '')
+
 
     def __chunks(self, numbers, n):
         for i in range(0, len(numbers), n):
@@ -68,7 +71,7 @@ class Card:
 
     def if_everything_crossed(self):
         for row in self.card_rows:
-            if not all(number == '-' for number in row):
+            if not all(number == '-' or number == '' for number in row):
                 return False
         return True
 
