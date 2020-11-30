@@ -83,22 +83,3 @@ class Card:
             _.append(row)
         card_str = '\n'.join(_)
         return card_str
-
-
-# s = Sack()
-# for i in range(91):
-#     print(s.get_current_number())
-
-# c = Card()
-# c.print_card()
-# # for r in c.card_rows:
-# #     for n in r:
-# #         c.cross_number(n)
-# c.cross_number(c.card_rows[0][1])
-# c.print_card()
-# print(c.if_everything_crossed())
-# c.cross_number(c.card_rows[1][3])
-# c.cross_number(c.card_rows[2][2])
-# print(c.contains(123))
-# print(c.contains(c.card_rows[0][3]))
-# c.print_card()
