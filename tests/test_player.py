@@ -1,5 +1,3 @@
-import pytest
-
 from game_parts import HumanPlayer, Card, AIPlayer
 
 
