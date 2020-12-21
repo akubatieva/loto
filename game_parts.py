@@ -50,7 +50,6 @@ class Card:
             for i in range(4):
                 row.insert(random.randint(0, len(row)), '')
 
-
     def __chunks(self, numbers, n):
         for i in range(0, len(numbers), n):
             yield numbers[i:i + n]
